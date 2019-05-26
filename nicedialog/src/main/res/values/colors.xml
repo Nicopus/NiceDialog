@@ -1,20 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="colorAccent">#D81B60</color>
+
+    <color name="colorError1">#F46B65</color>
+    <color name="colorError2">#E53935</color>
     
-    <color name="colorError1">#CB0000</color>
-    <color name="colorError2">#9B0000</color>
+    <color name="colorSuccess1">#78CE7D</color>
+    <color name="colorSuccess2">#43A047</color>
     
-    <color name="colorSuccess1">#009922</color>
-    <color name="colorSuccess2">#00600F</color>
+    <color name="colorWarning1">#FFE211</color>
+    <color name="colorWarning2">#FFC107</color>
     
-    <color name="colorWarning1">#FDE159</color>
-    <color name="colorWarning2">#FBC02D</color>
+    <color name="colorInfo1">#45C7FA</color>
+    <color name="colorInfo2">#2196F3</color>
     
-    <color name="colorInfo1">#009DDC</color>
-    <color name="colorInfo2">#0064B7</color>
-    
-    <color name="colorIconDark">#424242</color>
-    <color name="colorIconLight">#FFFFFF</color>
+    <color name="colorDarkGrey">#424242</color>
+    <color name="colorWhite">#FFFFFF</color>
+
+    00b686
     
 </resources>

@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">Nice Dialog</string>
-    <string name="title">Lorem ipsum</string>
-    <string name="lorem_ipsum">Lorem ipsum dolor sit amet, nunc curae nisl at, diam massa gravida non in hac mauris. Wisi auctor mollis.</string>
+    <string name="title">Nice Dialog</string>
+    <string name="message">This is an example of a Nice Dialog. Nice Dialogs are highly customizable. Check the Github
+        page for more info.
+    </string>
 </resources>
