@@ -22,6 +22,7 @@ class NiceDialog private constructor(
     private var iconOutlineColors: IntArray?,
     private var backgroundColor: Int?,
     private var textColor: Int?,
+    private var buttonColor: Int?,
     private var title: String,
     private var message: String,
     private var iconRes: Int?,
@@ -60,6 +61,7 @@ class NiceDialog private constructor(
         private var iconOutlineColors: IntArray? = null
         private var backgroundColor: Int? = null
         private var textColor: Int? = null
+        private var buttonColor: Int? = null
         private var title: String = ""
         private var message: String = ""
         private var iconRes: Int? = null
@@ -134,6 +136,11 @@ class NiceDialog private constructor(
             return this
         }
 
+        fun setButtonColor(color: Int): Builder {
+            this.buttonColor = color
+            return this
+        }
+
         fun addInputField(hint: String? = null, listener: OnInputListener): Builder {
             this.inputHint = hint
             this.inputListener = listener
@@ -142,8 +149,8 @@ class NiceDialog private constructor(
 
         fun create() = NiceDialog(
             context, dialogType, dialogShape, iconOutlineColors, backgroundColor,
-            textColor, title, message, iconRes, iconColor, positiveText, positiveListener,
-            negativeText, negativeListener, inputHint, inputListener
+            textColor, buttonColor, title, message, iconRes, iconColor, positiveText,
+            positiveListener, negativeText, negativeListener, inputHint, inputListener
         )
     }
 
@@ -192,6 +199,7 @@ class NiceDialog private constructor(
     private fun prepareButtons() {
         positiveListener?.let {
             positiveText?.let { text -> positiveButton.text = text }
+            buttonColor?.let { positiveButton.setTextColor(it) }
             buttonView.visibility = View.VISIBLE
             positiveButton.visibility = View.VISIBLE
             positiveButton.setOnClickListener {
@@ -204,6 +212,7 @@ class NiceDialog private constructor(
 
         negativeListener?.let {
             negativeText?.let { text -> negativeButton.text = text }
+            buttonColor?.let { negativeButton.setTextColor(it) }
             buttonView.visibility = View.VISIBLE
             negativeButton.visibility = View.VISIBLE
             negativeButton.setOnClickListener {
@@ -297,26 +306,22 @@ class NiceDialog private constructor(
     }
 
     private fun getIconColor(): Int {
-        return when {
-            iconColor != null -> {
-                iconColor!!
-            }
-            else -> {
-                getDialogTypeIconColor()
-            }
+        return if (iconColor != null) {
+            iconColor!!
+        } else {
+            getDialogTypeIconColor()
         }
     }
 
     private fun getDialogTypeIconColor(): Int {
-//        return when (dialogType) {
-//            WARNING -> {
-//                ContextCompat.getColor(context, R.color.colorDarkGrey)
-//            }
-//            else -> {
-//                ContextCompat.getColor(context, R.color.colorWhite)
-//            }
-//        }
-        return ContextCompat.getColor(context, R.color.colorWhite)
+        return when (dialogType) {
+            WARNING -> {
+                ContextCompat.getColor(context, R.color.colorDarkGrey)
+            }
+            else -> {
+                Color.WHITE
+            }
+        }
     }
 
 }

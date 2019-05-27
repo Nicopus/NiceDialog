@@ -33,8 +33,20 @@ class MainActivity : AppCompatActivity() {
             showDialog(DialogType.INFO)
         }
 
-        custom.setOnClickListener {
-            showDialog()
+        custom1.setOnClickListener {
+            showDialogWithArc()
+        }
+
+        custom2.setOnClickListener {
+            showDialogWithInput()
+        }
+
+        custom3.setOnClickListener {
+            showDialogWithCustomIcon()
+        }
+
+        custom4.setOnClickListener {
+            showDialogWithBackground()
         }
 
 
@@ -45,7 +57,7 @@ class MainActivity : AppCompatActivity() {
             .setDialogType(dialogType)
             .setTitle("Nice dialog")
             .setMessage("This is a test of the NiceDialog library.")
-            .setNegativeButton(null, object: NiceDialog.OnClickListener {
+            .setNegativeButton(null, object : NiceDialog.OnClickListener {
                 override fun onClick(dialog: NiceDialog) {
                     dialog.dismiss()
                 }
@@ -54,25 +66,71 @@ class MainActivity : AppCompatActivity() {
         dialog.show()
     }
 
-    private fun showDialog() {
+    private fun showDialogWithArc() {
         val dialog = NiceDialog.Builder(this)
             .setDialogShape(DialogShape.ARC)
+            .setDialogType(DialogType.SUCCESS)
             .setTitle("Nice dialog")
             .setMessage("This is a test of the NiceDialog library.")
-            .setBackgroundColor(ContextCompat.getColor(this, R.color.colorSuccess2))
-            .setTextColor(ContextCompat.getColor(this, R.color.colorWhite))
-            .setIconOutlineColors(intArrayOf(Color.TRANSPARENT, Color.TRANSPARENT))
-            .setPositiveButton(null, object: NiceDialog.OnClickListener {
+            .setPositiveButton(null, object : NiceDialog.OnClickListener {
                 override fun onClick(dialog: NiceDialog) {
                     dialog.dismiss()
                 }
             })
-            .addInputField("Name", object: NiceDialog.OnInputListener {
-                override fun onInput(text: String?) {
-                    textView.text = text
-                }
+            .create()
+        dialog.show()
+    }
 
+    private fun showDialogWithInput() {
+        val dialog = NiceDialog.Builder(this)
+            .setDialogType(DialogType.SUCCESS)
+            .setTitle("Nice dialog")
+            .setMessage("This is a test of the NiceDialog library.")
+            .setPositiveButton(null, object : NiceDialog.OnClickListener {
+                override fun onClick(dialog: NiceDialog) {
+                    dialog.dismiss()
+                }
             })
+            .addInputField("Enter random text", object : NiceDialog.OnInputListener {
+                override fun onInput(text: String?) {
+                    inputText.text = text
+                }
+            })
+            .create()
+        dialog.show()
+    }
+
+    private fun showDialogWithCustomIcon() {
+        val dialog = NiceDialog.Builder(this)
+            .setDialogType(DialogType.SUCCESS)
+            .setTitle("Nice dialog")
+            .setMessage("This is a test of the NiceDialog library.")
+            .setIcon(R.drawable.ic_android)
+            .setPositiveButton(null, object : NiceDialog.OnClickListener {
+                override fun onClick(dialog: NiceDialog) {
+                    dialog.dismiss()
+                }
+            })
+            .create()
+        dialog.show()
+    }
+
+    private fun showDialogWithBackground() {
+        val dialog = NiceDialog.Builder(this)
+            .setDialogShape(DialogShape.ARC)
+            .setDialogType(DialogType.SUCCESS)
+            .setTitle("Nice dialog")
+            .setMessage("This is a test of the NiceDialog library.")
+            .setBackgroundColor(ContextCompat.getColor(this, R.color.colorSuccess2))
+            .setIconColor(Color.WHITE)
+            .setTextColor(Color.WHITE)
+            .setIconOutlineColor(Color.TRANSPARENT)
+            .setPositiveButton(null, object : NiceDialog.OnClickListener {
+                override fun onClick(dialog: NiceDialog) {
+                    dialog.dismiss()
+                }
+            })
+            .setButtonColor(Color.WHITE)
             .create()
         dialog.show()
     }

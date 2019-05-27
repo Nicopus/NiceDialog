@@ -1,56 +1,143 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<LinearLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
+        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center"
+        android:padding="8dp"
         tools:context=".MainActivity">
 
-    <Button
-            android:id="@+id/error"
-            android:layout_width="wrap_content"
+    <TextView
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="Error"/>
+            android:text="Standard Dialog Types"
+            android:textAlignment="center"
+            android:padding="8dp"
+            android:textSize="@dimen/text_size_l"/>
 
-    <Button
-            android:id="@+id/warning"
-            android:layout_width="wrap_content"
+    <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/error"
-            android:layout_marginTop="16dp"
-            android:text="Warning"/>
+            android:weightSum="2">
 
-    <Button
-            android:id="@+id/success"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/warning"
-            android:layout_marginTop="16dp"
-            android:text="Success"/>
+        <Button
+                android:id="@+id/error"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="Error"
+                android:theme="@style/ErrorButton"/>
 
-    <Button
-            android:id="@+id/info"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/success"
-            android:layout_marginTop="16dp"
-            android:text="Info"/>
+        <Button
+                android:id="@+id/warning"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="Warning"
+                android:textColor="@color/colorDarkGrey"
+                android:theme="@style/WarningButton"/>
 
-    <Button
-            android:id="@+id/custom"
-            android:layout_width="wrap_content"
+    </LinearLayout>
+
+    <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/info"
-            android:layout_marginTop="16dp"
-            android:text="Custom"/>
+            android:weightSum="2">
+
+        <Button
+                android:id="@+id/success"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="Success"
+                android:theme="@style/SuccessButton"/>
+
+        <Button
+                android:id="@+id/info"
+                android:theme="@style/InfoButton"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="Info"/>
+
+
+    </LinearLayout>
 
     <TextView
-            android:id="@+id/textView"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:layout_below="@id/custom"/>
+            android:text="Custom dialog"
+            android:textAlignment="center"
+            android:padding="8dp"
+            android:textSize="@dimen/text_size_l"/>
 
-</RelativeLayout>
+    <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="2">
+
+        <Button
+                android:id="@+id/custom1"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="With Arc"/>
+
+        <Button
+                android:id="@+id/custom2"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="With Input"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="2">
+
+        <Button
+                android:id="@+id/custom3"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="Custom Icon"/>
+
+        <Button
+                android:id="@+id/custom4"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="Background"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center">
+
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Text from input:"
+                android:padding="8dp"/>
+
+        <TextView
+                android:id="@+id/inputText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="8dp"/>
+
+    </LinearLayout>
+
+
+</LinearLayout>

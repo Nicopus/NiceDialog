@@ -8,4 +8,24 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="ErrorButton" parent="Theme.AppCompat">
+        <item name="colorButtonNormal">@color/colorError2</item>
+        <item name="colorControlHighlight">@android:color/white</item>
+    </style>
+
+    <style name="WarningButton" parent="Theme.AppCompat">
+        <item name="colorButtonNormal">@color/colorWarning2</item>
+        <item name="colorControlHighlight">@android:color/white</item>
+    </style>
+
+    <style name="SuccessButton" parent="Theme.AppCompat">
+        <item name="colorButtonNormal">@color/colorSuccess2</item>
+        <item name="colorControlHighlight">@android:color/white</item>
+    </style>
+
+    <style name="InfoButton" parent="Theme.AppCompat">
+        <item name="colorButtonNormal">@color/colorInfo2</item>
+        <item name="colorControlHighlight">@android:color/white</item>
+    </style>
+
 </resources>
