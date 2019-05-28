@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!--Default accent color. Overridden by app.-->
     <color name="colorAccent">#D81B60</color>
 
     <color name="colorError1">#F46B65</color>
@@ -15,7 +16,5 @@
     <color name="colorInfo2">#2196F3</color>
     
     <color name="colorDarkGrey">#424242</color>
-
-    00b686
     
 </resources>
