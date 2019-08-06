@@ -1,12 +1,15 @@
 package com.nicolaihansen.nicedialogsample
 
+import android.graphics.BitmapFactory
 import android.graphics.Color
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.support.v4.content.ContextCompat
+import android.widget.ImageView
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import com.nicolaihansen.nicedialog.DialogShape
 import com.nicolaihansen.nicedialog.NiceDialog
 import com.nicolaihansen.nicedialog.DialogType
+import com.nicolaihansen.nicedialog.ImageDialog
 import kotlinx.android.synthetic.main.activity_main.*
 
 
@@ -47,6 +50,10 @@ class MainActivity : AppCompatActivity() {
 
         custom4.setOnClickListener {
             showDialogWithBackground()
+        }
+
+        custom5.setOnClickListener {
+            showDialogWithBanner()
         }
 
 
@@ -131,6 +138,22 @@ class MainActivity : AppCompatActivity() {
                 }
             })
             .setButtonColor(Color.WHITE)
+            .create()
+        dialog.show()
+    }
+
+    private fun showDialogWithBanner() {
+        val bitmap = BitmapFactory.decodeResource(resources, R.drawable.def_banner)
+        val dialog = ImageDialog.Builder(this, bitmap)
+            .setImageHeight(60)
+            .setImageScaleType(ImageView.ScaleType.CENTER_CROP)
+            .setTitle("Nice dialog")
+            .setMessage("This is a test of the NiceDialog library.")
+            .setPositiveButton(null, object : ImageDialog.OnClickListener {
+                override fun onClick(dialog: ImageDialog) {
+                    dialog.dismiss()
+                }
+            })
             .create()
         dialog.show()
     }
